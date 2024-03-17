@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   todos: [
-    { id: 1, text: "Feed Tiger dinner.", status: "incomplete" },
-    { id: 2, text: "Clean out fridge.", status: "incomplete" },
-    { id: 3, text: "Do laundry", status: "incomplete" },
+    { id: 1, text: "Feed Tiger dinner", completed: false },
+    { id: 2, text: "Clean out fridge", completed: false },
+    { id: 3, text: "Do laundry", completed: false },
   ],
   appTitle: "Katherine's Todo List",
 };
@@ -17,11 +17,16 @@ export const todoSlice = createSlice({
       const newTodo = action.payload;
       state.todos.push(newTodo);
     },
-    someOtherFunction: (state, action) => {
-      console.log(state, action);
+    toggleToDo: (state, action) => {
+      state.todos = state.todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
     },
   },
 });
 
-export const { addToTodos, someOtherFunction } = todoSlice.actions;
+export const { addToTodos, toggleToDo } = todoSlice.actions;
 export default todoSlice.reducer;
