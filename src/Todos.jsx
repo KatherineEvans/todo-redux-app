@@ -34,12 +34,9 @@ export function Todos() {
           value={todoText}
           onChange={(event) => setTodoText(event.target.value)}
           type="text"
-          className="rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mr-3"
+          className="input-text-field"
         />
-        <button
-          onClick={handleAdd}
-          className="py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
-        >
+        <button onClick={handleAdd} className="btn-primary">
           Add
         </button>
       </div>
